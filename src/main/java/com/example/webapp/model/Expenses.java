@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @Entity
 @Table(name = "EXPENSES")
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper=false)
 public class Expenses extends CommonEntity{
 
     @NotNull
@@ -18,7 +18,7 @@ public class Expenses extends CommonEntity{
     private PaymentType paymentType;
 
     @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "EXPENSES_TYPE_ID")
     private ExpensesType expensesType;
 

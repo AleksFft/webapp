@@ -7,6 +7,8 @@ import com.example.webapp.repository.ExpensesTypeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ExpensesTypeService {
@@ -16,5 +18,9 @@ public class ExpensesTypeService {
     public void save(ExpensesTypeDto dto) {
         ExpensesType entity = ExpensesTypeMapper.INSTANCE.toEntity(dto);
         repository.save(entity);
+    }
+
+    public ExpensesType findByName(String name) {
+        return repository.findExpensesTypeByName(name);
     }
 }

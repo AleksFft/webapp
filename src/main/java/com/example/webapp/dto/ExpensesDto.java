@@ -9,7 +9,7 @@ import lombok.Setter;
 public class ExpensesDto extends CommonDto {
 
     private PaymentType paymentType;
-    private Long expensesTypeId;
-    private Long companyId;
+    private String expensesName;
+    private CompanyDto company;
     private Long expensesAmount;
 }
