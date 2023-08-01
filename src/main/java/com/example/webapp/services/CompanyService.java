@@ -7,6 +7,8 @@ import com.example.webapp.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CompanyService {
@@ -16,5 +18,14 @@ public class CompanyService {
     public void save(CompanyDto companyDto) {
         Company company = CompanyMapper.INSTANCE.toEntity(companyDto);
         repository.save(company);
+    }
+
+    public List<Company> findAll() {
+        return repository.findAll();
+    }
+
+    public Company findByName(String name) {
+        return repository.findCompanyByName(name);
+
     }
 }

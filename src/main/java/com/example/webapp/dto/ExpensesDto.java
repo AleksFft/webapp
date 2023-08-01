@@ -10,6 +10,6 @@ public class ExpensesDto extends CommonDto {
 
     private PaymentType paymentType;
     private String expensesName;
-    private CompanyDto company;
+    private String company;
     private Long expensesAmount;
 }

@@ -23,4 +23,8 @@ public class ExpensesTypeService {
     public ExpensesType findByName(String name) {
         return repository.findExpensesTypeByName(name);
     }
+
+    public List<ExpensesType> findAll() {
+        return repository.findAll();
+    }
 }

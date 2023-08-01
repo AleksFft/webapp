@@ -4,6 +4,7 @@ import com.example.webapp.dto.ExpensesDto;
 import com.example.webapp.model.Expenses;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
@@ -15,4 +16,9 @@ public interface ExpensesMapper extends CommonMapper<Expenses, ExpensesDto> {
     @Mapping(target = "company", ignore = true)
     @Mapping(target = "expensesType", ignore = true)
     Expenses toEntity(ExpensesDto dto);
+
+    @Override
+    @Mapping(target = "expensesName", expression = "java(entity.getExpensesType().getExpensesName())")
+    @Mapping(target = "company", ignore = true)
+    ExpensesDto toDto(Expenses entity);
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Expenses</title>
+
+<head>
+    <meta charset="UTF-8">
+    <title>My web app</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Expenses</h2>
+    <a th:href="@{/expenses/save_expenses}" class="btn btn-primary">save expenses</a>
+    <hr/>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>payment type</th>
+            <th>expenses name</th>
+            <th>company</th>
+            <th>expenses amount</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="expenses: ${expenses}">
+            <td th:text="${expenses.paymentType}"></td>
+            <td th:text="${expenses.expensesName}"></td>
+            <td th:text="${expenses.company}"></td>
+            <td th:text="${expenses.expensesAmount}"></td>
+            <td>
+                <a th:href="@{/expenses/updateForm(id=${expenses.id})}" class="btn btn-info">update</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

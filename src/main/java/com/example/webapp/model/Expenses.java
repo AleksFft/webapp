@@ -2,6 +2,8 @@ package com.example.webapp.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,10 +24,15 @@ public class Expenses extends CommonEntity{
     @JoinColumn(name = "EXPENSES_TYPE_ID")
     private ExpensesType expensesType;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COMPANY_ID")
     private Company company;
 
     @Column(name = "EXPENSES_AMOUNT")
     private Long expensesAmount;
+
+    @Nullable
+    public Company getCompany() {
+        return company;
+    }
 }
