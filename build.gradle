@@ -38,8 +38,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.hibernate.validator:hibernate-validator:6.1.6.Final'
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
-	runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:9.4.1.jre8'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

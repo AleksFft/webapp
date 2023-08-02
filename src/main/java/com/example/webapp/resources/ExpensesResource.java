@@ -29,16 +29,9 @@ public class ExpensesResource {
     }
 
     @PostMapping(value = "/save")
-    public String save(@ModelAttribute ExpensesDto dto) {
+    public ModelAndView save(@ModelAttribute ExpensesDto dto) {
         service.save(dto);
-        return "redirect: expenses/expenses";
-    }
-
-    @PostMapping(value = "/update/{name}/{current_amount}/{new_amount}")
-    public void update(@PathVariable("name") String name,
-                       @PathVariable("current_amount") Long currentAmount,
-                       @PathVariable("new_amount") Long new_amount) {
-        service.update(name, currentAmount, new_amount);
+        return new ModelAndView("index");
     }
 
     @GetMapping("/updateForm")

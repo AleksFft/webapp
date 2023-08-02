@@ -31,8 +31,8 @@ public class ExpensesTypeResource {
     }
 
     @PostMapping(value = "/save")
-    public String save(@ModelAttribute ExpensesTypeDto dto) {
+    public ModelAndView save(@ModelAttribute ExpensesTypeDto dto) {
         service.save(dto);
-        return "redirect: expenses_type/expenses_type";
+        return new ModelAndView("index");
     }
 }

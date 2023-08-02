@@ -30,8 +30,8 @@ public class CompanyResource {
     }
 
     @PostMapping(value = "/save")
-    public String save(@ModelAttribute CompanyDto companyDto) {
+    public ModelAndView save(@ModelAttribute CompanyDto companyDto) {
         service.save(companyDto);
-        return "redirect: company/companies";
+        return new ModelAndView("index");
     }
 }
